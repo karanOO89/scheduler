@@ -1,25 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect,useState } from "react";
+import axios from "axios";
 import "components/Application.scss";
 import DayList from "./DayList";
-import Appointment from "components/Appointment/index"
+import Appointment from "components/Appointment/index";
 
-const days = [
-  {
-    id: 1,
-    name: "Monday",
-    spots: 2,
-  },
-  {
-    id: 2,
-    name: "Tuesday",
-    spots: 5,
-  },
-  {
-    id: 3,
-    name: "Wednesday",
-    spots: 0,
-  },
-];
 const appointments = [
   {
     id: 1,
@@ -34,21 +18,25 @@ const appointments = [
         id: 1,
         name: "Sylvia Palmer",
         avatar: "https://i.imgur.com/LpaY82x.png",
-      }
-    }
-  }
+      },
+    },
+  },
 ];
 
-
 export default function Application(props) {
-  const [day, setDay] = useState("Monday");
-  
-  const appointmentList = appointments.map(appointment => {
-       return( <Appointment key={appointment.id} {...appointment}/>
-        
-        );
-  }
-    ) 
+  const [days, setDays] = useState([]);
+  useEffect(() => {
+    const url = "http://localhost:8001/api/days"
+    axios.get(url)
+    .then(res=>{
+      console.log("new dataaaaaaaaaaa:",res.data);
+      
+    })
+  },[]);
+
+  const appointmentList = appointments.map((appointment) => {
+    return <Appointment key={appointment.id} {...appointment} />;
+  });
   return (
     <main className="layout">
       <section className="sidebar">
@@ -59,7 +47,7 @@ export default function Application(props) {
         />
         <hr className="sidebar__separator sidebar--centered" />
         <nav className="sidebar__menu">
-          <DayList days={days} day={day} setDay={setDay} />
+          {/* <DayList days={days} day={day} setDay={setDays} /> */}
         </nav>
 
         <img
@@ -68,9 +56,7 @@ export default function Application(props) {
           alt="Lighthouse Labs"
         />
       </section>
-      <section className="schedule">
-       {appointmentList}
-      </section>
+      <section className="schedule">{appointmentList}</section>
     </main>
   );
 }
