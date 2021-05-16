@@ -3,6 +3,7 @@ import "./InterviewerList.scss";
 import InterviewerListItem from "./InterviewerListItem";
 
 const InterviewerList = (props) => {
+  if(props.interviewers){
   const interviewerList = props.interviewers.map((interviewer) => {
     return (
       <InterviewerListItem
@@ -15,7 +16,7 @@ const InterviewerList = (props) => {
       />
     );
   });
-
+  
   return (
     <section className="interviewers">
       <h4 className="interviewers__header text--light">Interviewers</h4>
@@ -23,5 +24,8 @@ const InterviewerList = (props) => {
     </section>
   );
 };
+return <div></div> 
+}
+
 
 export default InterviewerList;

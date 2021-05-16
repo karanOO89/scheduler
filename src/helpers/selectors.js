@@ -24,5 +24,15 @@ export function getInterview(state, interview) {
   }
   return result;
 }
-
-// export default {getAppointmentsForDay, getInterview };
+export function getInterviewersForDay(state, day) {
+  console.log("data",state,day)
+  const result = [];
+  state.days.map((arDay) => {
+    if (arDay.name === day) {
+      arDay.interviewers.map((apId) => {
+        result.push(state.interviewers[apId]);
+      });
+    }
+  });
+  return result;
+}

@@ -2,16 +2,30 @@ import { getAppointmentsForDay, getInterview } from "helpers/selectors";
 
 const state = {
   days: [
+    // {
+    //   id: 1,
+    //   name: "Monday",
+    //   appointments: [1, 2, 3],
+    // },
+    // {
+    //   id: 2,
+    //   name: "Tuesday",
+    //   appointments: [4, 5],
+    // },
     {
       id: 1,
       name: "Monday",
-      appointments: [1, 2, 3],
+      appointments: [1, 2, 3, 4, 5],
+      interviewers: [1, 4, 8, 9, 10],
+      spots: 4,
     },
     {
       id: 2,
       name: "Tuesday",
-      appointments: [4, 5],
-    },
+      appointments: [6, 7, 8, 9, 10],
+      interviewers: [6, 7, 8, 9, 10],
+      spots: 3,
+    }
   ],
   appointments: {
     1: { id: 1, time: "12pm", interview: null },

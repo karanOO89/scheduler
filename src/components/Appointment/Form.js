@@ -3,7 +3,7 @@ import Button from "../Button";
 import InterviewerList from "../InterviewerList";
 
 const Form = (props) => {
-  // console.log(props)
+  console.log("form -interviewers",props)
   const [name, setName] = useState(props.name || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
 
@@ -12,7 +12,8 @@ const Form = (props) => {
     setInterviewer(null);
   };
   const cancel = () => {
-    reset();
+    // reset();
+    console.log("in form component cancel")
     props.onCancel();
   };
 
