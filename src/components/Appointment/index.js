@@ -10,11 +10,10 @@ import useVisualMode from "hooks/useVisualMode";
 import Form from "./Form";
 
 const Appointment = (props) => {
-  console.log("appointment ", props);
-
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
   const CREATE = "CREATE";
+  const EDIT = "EDIT";
   const SAVING = "SAVING";
   const DELETING = "DELETING";
   const CONFIRM = "CONFIRM";
@@ -52,7 +51,7 @@ const Appointment = (props) => {
       .catch((error) => transition(ERROR_DELETE, true));
   };
   const onEdit = () => {
-    transition(CREATE);
+    transition(EDIT);
   };
 
   return (
@@ -68,8 +67,18 @@ const Appointment = (props) => {
           onEdit={onEdit}
         />
       )}
+
       {mode === CREATE && (
         <Form
+          interviewers={props.interviewers}
+          onCancel={() => back()}
+          onSave={save}
+        />
+      )}
+      {mode === EDIT && (
+        <Form
+          name={props.interview.student}
+          interviewer={props.interview.interviewer}
           interviewers={props.interviewers}
           onCancel={() => back()}
           onSave={save}

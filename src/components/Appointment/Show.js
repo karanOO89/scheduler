@@ -2,7 +2,6 @@ import React from "react";
 import "components/Appointment/styles.scss";
 
 const Show = (props) => {
-  console.log("showwwww",props);
   let interviewer = props.interviewers.filter(interviewer => interviewer.id === props.interviewer)
   interviewer = interviewer[0]
   return (

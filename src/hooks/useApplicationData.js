@@ -14,9 +14,9 @@ export default function useApplicationData() {
   };
 
   useEffect(() => {
-    const urlDays = "http://localhost:8001/api/days";
-    const urlAppointments = "http://localhost:8001/api/appointments";
-    const urlInterviwers = "http://localhost:8001/api/interviewers";
+    const urlDays = "/api/days";
+    const urlAppointments = "/api/appointments";
+    const urlInterviwers = "/api/interviewers";
     Promise.all([
       axios.get(urlDays),
       axios.get(urlAppointments),

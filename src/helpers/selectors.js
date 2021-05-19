@@ -25,7 +25,6 @@ export function getInterview(state, interview) {
   return result;
 }
 export function getInterviewersForDay(state, day) {
-  console.log("data",state,day)
   const result = [];
   state.days.map((arDay) => {
     if (arDay.name === day) {
