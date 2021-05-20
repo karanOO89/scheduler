@@ -19,6 +19,7 @@ const InterviewerListItem = (props) => {
           className="interviewers__item-image"
           src={props.avatar}
           alt={props.name}
+          data-cySelectedInterviewer="SelectedInterviewer"
         />
         {props.selected && props.name}
       </li>
