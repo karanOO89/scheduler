@@ -93,10 +93,10 @@ const Appointment = (props) => {
         />
       )}
       {mode === ERROR_SAVE && (
-        <Error message={"Error"} onClose={() => back()} />
+        <Error title={"Error"} message={"Couldn't save, please try later"} onClose={() => back()} />
       )}
       {mode === ERROR_DELETE && (
-        <Error message={"Error"} onClose={() => back()} />
+        <Error title={"Error"} message={"Couldn't find the appointment"}onClose={() => back()} />
       )}
     </article>
   );
