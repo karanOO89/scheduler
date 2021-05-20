@@ -4,7 +4,6 @@ import InterviewerListItem from "./InterviewerListItem";
 import PropTypes from 'prop-types';
 
 const InterviewerList = (props) => {
-  // if(props.interviewers.length > 0 && !undefined){
     
   const interviewerList = props.interviewers.map((interviewer) => {
     return (
@@ -22,12 +21,10 @@ const InterviewerList = (props) => {
   return (
     <section className="interviewers">
       <h4 className="interviewers__header text--light">Interviewers</h4>
-      <ul className="interviewers__list"value={props.interviewer}>{interviewerList}</ul>
+      <ul className="interviewers__list"value={props.interviewer} data-testid="interviewerTest">{interviewerList}</ul>
     </section>
   );
 };
-// return <div></div> 
-// }
 InterviewerList.propTypes = {
   interviewers: PropTypes.array.isRequired
 };

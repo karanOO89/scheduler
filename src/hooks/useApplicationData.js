@@ -42,8 +42,9 @@ export default function useApplicationData() {
     };
     let days = updateSpots(appointments, state.day, state.days);
 
-    const urlAppointments = `http://localhost:8001/api/appointments/${id}`;
-    return axios.put(urlAppointments, appointment).then(() => {
+    const urlAppointments = `/api/appointments/${id}`;
+    return axios.put(urlAppointments, appointment)
+    .then(() => {
       setState((prev) => ({ ...prev, appointments, days }));
     });
   }
@@ -58,7 +59,7 @@ export default function useApplicationData() {
       [id]: appointment,
     };
 
-    const urlAppointments = `http://localhost:8001/api/appointments/${id}`;
+    const urlAppointments = `/api/appointments/${id}`;
     let days = updateSpots(appointments, state.day, state.days);
     return axios.delete(urlAppointments).then(() => {
       setState((prev) => ({ ...prev, appointments, days }));
