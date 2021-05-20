@@ -152,6 +152,6 @@ describe("Application", () => {
     expect(getByText(appointment, "Deleting...")).toBeInTheDocument();
     await waitForElement(() => queryByText(appointment, "Error"));
     fireEvent.click(getByAltText(appointment, "Close"));
-    await waitForElement(() => getByText(container, "Archie Cohen"));
+    await waitForElement(() => getByText(appointment, "Archie Cohen"));
   });
 });
