@@ -1,6 +1,6 @@
 # Interview Scheduler
 An interview scheduling SPA application features various functionalities required for scheduling an interview using Functional Component in React.
-An axios call has been executed to fetch data from a backend-API (https://github.com/karanOO89/scheduler-api.git).
+Multiple axios calls has been executed, using Promise All to fetch data from a backend-API (https://github.com/karanOO89/scheduler-api.git).
 
 ## Setup
 
